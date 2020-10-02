@@ -7,6 +7,7 @@ import com.lxy.mall.pojo.User;
 import com.lxy.mall.service.IUserService;
 import com.lxy.mall.vo.ResponseVo;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +22,7 @@ public class UserServiceImplTest extends MallApplicationTests {
     @Autowired
     private IUserService userService;
 
-    @Test
+    @Before
     public void register() {
         User user = new User(USERNAME,PASSWORD,"jack@qq.com", RoleEnum.CUSTOMER.getCode());
         userService.register(user);
@@ -29,7 +30,6 @@ public class UserServiceImplTest extends MallApplicationTests {
 
     @Test
     public void login() {
-        register();
         ResponseVo<User> responseVo = userService.login(USERNAME, PASSWORD);
         Assert.assertEquals(ResponseEnum.SUCCESS.getCode(),responseVo.getStatus());
     }

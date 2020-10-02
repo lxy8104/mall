@@ -1,20 +1,23 @@
 package com.lxy.mall.dao;
 
 import com.lxy.mall.pojo.Product;
-import com.lxy.mall.pojo.ProductWithBLOBs;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Set;
 
 public interface ProductMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(ProductWithBLOBs record);
+    int insert(Product record);
 
-    int insertSelective(ProductWithBLOBs record);
+    int insertSelective(Product record);
 
-    ProductWithBLOBs selectByPrimaryKey(Integer id);
+    Product selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(ProductWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(ProductWithBLOBs record);
+    int updateByPrimaryKeySelective(Product record);
 
     int updateByPrimaryKey(Product record);
+
+    List<Product> selectByCategoryIdSet(@Param("categoryIdSet") Set<Integer> categoryIdSet);
 }

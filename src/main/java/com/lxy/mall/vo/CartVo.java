@@ -2,6 +2,9 @@ package com.lxy.mall.vo;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 /*
  *@Description
  *@Author:lxy
@@ -9,5 +12,13 @@ import lombok.Data;
  */
 @Data
 public class CartVo {
-    
+
+    private List<CartProductVo> cartProductVoListList;
+
+    private Boolean selectAll;
+
+    private BigDecimal cartTotalPrice;
+
+    private Integer cartTotalQuantity;
+
 }
